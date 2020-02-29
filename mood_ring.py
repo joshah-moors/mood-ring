@@ -11,7 +11,7 @@ mood_map = [
     ('sad', 0.25),
 ]
 
-class MoodRing:
+class Ring:
     def __init__(self, map=mood_map):
         self.moods_opts, self.mood_probs = zip(*map)
         self.change()
@@ -30,6 +30,10 @@ class MoodRing:
 
 
 if __name__ == '__main__':
-    print(MoodRing())
+    r = Ring()
+    mood_list = [item[0] for item in mood_map]
+    print(mood_list)
+    if str(r) in mood_list:
+        print('ye')
     #this_map = [('crank', 5), ('cryyng', 8)]
     #print(MoodRing(this_map))
