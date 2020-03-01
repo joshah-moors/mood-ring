@@ -4,6 +4,7 @@ import bisect
 import itertools
 import random
 
+
 def choices(population, weights=None, *, cum_weights=None, k=1):
     """Return a k sized list of population elements chosen with replacement.
 
