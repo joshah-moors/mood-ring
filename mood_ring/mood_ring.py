@@ -33,13 +33,13 @@ _default_mood_map = {
 
 class Ring:
     def __init__(self, mood_map=_default_mood_map, **kwargs):
-        if type(self.mood_map) != type({}):
+        if type(mood_map) != type({}):
             raise TypeError('Argument \'mood_map\' only accepts a dictionary object')
         self.extended_map = kwargs.get('extend', {})
         if type(self.extended_map) != type({}):
             raise TypeError('Keyword argument \'extended\' only accepts a dictionary object')
-        self.mood_map.update(self.extended_map)
-        self.moods_opts, self.mood_probs = zip(*[i for i in self.mood_map.items()])
+        mood_map.update(self.extended_map)
+        self.moods_opts, self.mood_probs = zip(*[i for i in mood_map.items()])
         self.change()
 
     def __str__(self):
@@ -55,6 +55,6 @@ class Ring:
 
 
 if __name__ == '__main__':
-    #mood = Ring({}, extend={'happy': 1})
+    #mood = Ring({}, extend={'suave': 1})
     mood = Ring()
     print(mood)
