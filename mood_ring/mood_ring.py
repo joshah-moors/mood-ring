@@ -17,16 +17,16 @@ if sys.version_info < (3, 6):
     from compat import choices
     random.choices = choices
 
-mood_map = [
-    ('happy', 0.25),
-    ('angry', 0.25),
-    ('anxious', 0.25),
-    ('sad', 0.25),
-]
+_default_mood_map = {
+    'happy': 0.25,
+    'angry': 0.25,
+    'anxious': 0.25,
+    'sad': 0.25,
+}
 
 class Ring:
-    def __init__(self, map=mood_map):
-        self.moods_opts, self.mood_probs = zip(*map)
+    def __init__(self, mood_map=_default_mood_map):
+        self.moods_opts, self.mood_probs = zip(*[i for i in mood_map.items()])
         self.change()
 
     def __str__(self):
@@ -44,10 +44,6 @@ class Ring:
 
 if __name__ == '__main__':
     r = Ring()
-    mood_list = [item[0] for item in mood_map]
-    print(mood_list)
-    if str(r) in mood_list:
-        print('ye')
     print(r)
-    #this_map = [('cranky', 5), ('elated', 8)]
-    #print(MoodRing(this_map))
+    this_map = {'cranky': 5, 'elated': 8}
+    print(Ring(this_map))
