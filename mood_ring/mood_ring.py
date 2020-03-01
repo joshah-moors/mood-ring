@@ -18,15 +18,27 @@ if sys.version_info < (3, 6):
     random.choices = choices
 
 _default_mood_map = {
-    'happy': 0.25,
-    'angry': 0.25,
-    'anxious': 0.25,
-    'sad': 0.25,
+    'stressed': 1,
+    'nervous': 1,
+    'unsettled': 1,
+    'active': 1,
+    'relaxed': 1,
+    'lovable': 1,
+    'romantic': 1,
+    'happy': 1,
+    'tired': 1,
+    'calm': 1,
 }
 
 
 class Ring:
-    def __init__(self, mood_map=_default_mood_map):
+    def __init__(self, mood_map=_default_mood_map, **kwargs):
+        if type(mood_map) != type({}):
+            raise TypeError('Argument \'mood_map\' only accepts a dictionary object')
+        self.extended_map = kwargs.get('extend', {})
+        if type(self.extended_map) != type({}):
+            raise TypeError('Keyword argument \'extended\' only accepts a dictionary object')
+        mood_map.update(self.extended_map)
         self.moods_opts, self.mood_probs = zip(*[i for i in mood_map.items()])
         self.change()
 
@@ -43,7 +55,6 @@ class Ring:
 
 
 if __name__ == '__main__':
-    r = Ring()
-    print(r)
-    this_map = {'cranky': 5, 'elated': 8}
-    print(Ring(this_map))
+    #mood = Ring({}, extend={'suave': 1})
+    mood = Ring()
+    print(mood)
