@@ -1,8 +1,21 @@
 #! /usr/bin/env python3
-'''
-This module is designed for python 3.6 or newer
+'''The mood_ring module by Joshah Moors
+
+This module is the python equivalent of a novelty mood ring.
+It contains a Ring object that returns a string describing a mood.
+A default set of moods is provided for out-of-the-box usage, but at time of
+instantiation the selection of moods can be overwritten or extended.
+
+Also, this is a trivial module intended to be a learning excecise for
+packaging and distributing code.
+
 '''
 import random
+import sys
+
+if sys.version_info < (3, 6):
+    from compat import choices
+    random.choices = choices
 
 mood_map = [
     ('happy', 0.25),
@@ -35,5 +48,6 @@ if __name__ == '__main__':
     print(mood_list)
     if str(r) in mood_list:
         print('ye')
-    #this_map = [('crank', 5), ('cryyng', 8)]
+    print(r)
+    #this_map = [('cranky', 5), ('elated', 8)]
     #print(MoodRing(this_map))
