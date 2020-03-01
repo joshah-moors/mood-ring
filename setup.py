@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="mood-ring-joshah-moors", # Replace with your own username
+    name="mood-ring-joshah-moors",
     version="0.0.1",
     author="Joshah Moors",
     author_email="",

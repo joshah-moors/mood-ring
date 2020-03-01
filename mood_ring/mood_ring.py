@@ -24,6 +24,7 @@ _default_mood_map = {
     'sad': 0.25,
 }
 
+
 class Ring:
     def __init__(self, mood_map=_default_mood_map):
         self.moods_opts, self.mood_probs = zip(*[i for i in mood_map.items()])
@@ -37,9 +38,8 @@ class Ring:
 
     def change(self):
         self.mood = random.choices(population=self.moods_opts,
-                                   weights=self.mood_probs, 
+                                   weights=self.mood_probs,
                                    k=1)[0]
-
 
 
 if __name__ == '__main__':
