@@ -33,13 +33,19 @@ _default_mood_map = {
 
 class Ring:
     def __init__(self, mood_map=_default_mood_map, **kwargs):
-        if type(mood_map) != type({}):
-            raise TypeError('Argument \'mood_map\' only accepts a dictionary object')
-        self.extended_map = kwargs.get('extend', {})
-        if type(self.extended_map) != type({}):
-            raise TypeError('Keyword argument \'extended\' only accepts a dictionary object')
-        mood_map.update(self.extended_map)
-        self.moods_opts, self.mood_probs = zip(*[i for i in mood_map.items()])
+        if type(mood_map) == type([]):
+            value_map = [1 for m in mood_map]
+            mood_map = {mood_map[i]: value_map[i] for i in range(len(mood_map))}
+        elif type(mood_map) != type({}):
+            raise TypeError('Argument \'mood_map\' only accepts list/dict objects')
+        extended_map = kwargs.get('extend', {})
+        if type(extended_map) == type([]):
+            value_map = [1 for m in extended_map]
+            extended_map = {extended_map[i]: value_map[i] for i in range(len(extended_map))}
+        elif type(extended_map) != type({}):
+            raise TypeError('Keyword argument \'extend\' only accepts list/dict objects')
+        mood_map.update(extended_map)
+        self.mood_opts, self.mood_probs = zip(*[i for i in mood_map.items()])
         self.change()
 
     def __str__(self):
@@ -49,12 +55,12 @@ class Ring:
         return self.mood
 
     def change(self):
-        self.mood = random.choices(population=self.moods_opts,
+        self.mood = random.choices(population=self.mood_opts,
                                    weights=self.mood_probs,
                                    k=1)[0]
 
 
 if __name__ == '__main__':
     #mood = Ring({}, extend={'suave': 1})
-    mood = Ring()
-    print(mood)
+    m = Ring(['cool', 'happy', 'loud'], extend=['loud', 'chill'])
+    print(m.mood_opts)
