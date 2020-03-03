@@ -46,9 +46,9 @@ def test_input_arg_type_str():
         mood_ring = Ring('this mood')
     assert 'only accepts list/dict objects' in str(err.value)
 
-def test_input_arg_type_str():
+def test_input_kw_type_str():
     with pytest.raises(TypeError) as err:
-        mood_ring = Ring('this mood')
+        mood_ring = Ring(extend='this mood')
     assert 'only accepts list/dict objects' in str(err.value)
 
 def test_input_arg_type_int():
