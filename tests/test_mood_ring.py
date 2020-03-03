@@ -14,6 +14,10 @@ def test_ring_output_membership():
     mood_ring = Ring()
     assert str(mood_ring) in mood_list
 
+def test_ring_repr_str_methods():
+    mood_ring = Ring()
+    assert str(mood_ring) == repr(mood_ring)
+
 def test_ring_change_method():
     mood_list = _default_mood_map.keys()
     mood_ring = Ring()

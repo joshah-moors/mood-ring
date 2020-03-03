@@ -60,7 +60,8 @@ class Ring:
 
 if __name__ == '__main__':
     #mood = Ring({}, extend={'suave': 1})
-    m = Ring(['cool', 'happy', 'loud'], extend=['loud', 'chill'])
-    print(m)
-    m.change()
+    #m = Ring(['cool', 'happy', 'loud'], extend=['loud', 'chill'])
+    #print(m)
+    #m.change()
+    m = Ring()
     print(m)
