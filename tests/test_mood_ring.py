@@ -16,21 +16,21 @@ def test_custom_input_arg():
     mood_list = input_1.keys()
     mood_ring = Ring(input_1)
     assert len(input_1.keys()) == len(input_1.keys())
-    for mood in mood_ring.moods_opts:
+    for mood in mood_ring.mood_opts:
         assert mood in input_1.keys()
 
 def test_extended_input_key():
     def_len = len(_default_mood_map.keys())
     mood_ring = Ring(extend=input_1)
     ext_len = len(input_1.keys())
-    assert len(mood_ring.moods_opts) == def_len + ext_len
+    assert len(mood_ring.mood_opts) == def_len + ext_len
 
 def test_input_arg_type():
     with pytest.raises(TypeError) as err:
         mood_ring = Ring('this mood')
-    assert 'only accepts a dictionary object' in str(err.value)
+    assert 'only accepts list/dict objects' in str(err.value)
 
 def test_input_kw_type():
     with pytest.raises(TypeError) as err:
         mood_ring = Ring(extend='this mood')
-    assert 'only accepts a dictionary object' in str(err.value)
+    assert 'only accepts list/dict objects' in str(err.value)
