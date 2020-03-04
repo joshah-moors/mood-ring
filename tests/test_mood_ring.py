@@ -24,6 +24,13 @@ def test_ring_change_method():
     mood_ring.change()
     assert str(mood_ring) in mood_list
 
+def test_ring_change_method_next():
+    mood_ring = Ring()
+    old_mood = str(mood_ring)
+    for _ in range(100):
+        mood_ring.change()
+        assert old_mood != mood_ring
+
 def test_custom_dict_input():
     mood_list = dict_input_1.keys()
     mood_ring = Ring(dict_input_1)
