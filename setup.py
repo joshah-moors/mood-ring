@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mood-ring-joshah-moors",
-    version="0.0.1",
+    version="0.0.12",
     author="Joshah Moors",
     author_email="",
     description="Ring object that returns a mood as a string",
