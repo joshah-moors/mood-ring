@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: mood-ring-joshah-moors
-Version: 0.0.12
+Version: 0.0.13
 Summary: Ring object that returns a mood as a string
 Home-page: https://github.com/pypa/moodring
 Author: Joshah Moors
