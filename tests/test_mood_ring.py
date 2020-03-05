@@ -1,5 +1,8 @@
-import sys, os, pytest
+import os
+import sys
 sys.path.append(os.path.join(os.path.dirname(__file__),os.pardir,"mood_ring"))
+
+import pytest
 
 from mood_ring import _default_mood_map, Ring
 
