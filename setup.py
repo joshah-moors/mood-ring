@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mood-ring-joshah-moors",
-    version="0.0.13",
+    version="0.0.21",
     author="Joshah Moors",
     author_email="",
     description="Ring object that returns a mood as a string",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/pypa/moodring",
-    packages=setuptools.find_packages(),
+    packages=['mood_ring'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

@@ -1,1 +1,1 @@
-import mood_ring
+from .mood_ring import *
