@@ -58,11 +58,3 @@ class Ring:
             self.mood = random.choices(population=self.mood_opts,
                                        weights=self.mood_probs,
                                        k=1)[0]
-
-
-
-if __name__ == '__main__':
-    #mood = Ring({}, extend={'suave': 1})
-    m = Ring(['cool', 'happy', 'loud'], extend=['loud', 'chill'])
-    print(m)
-    m.change()
